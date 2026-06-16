@@ -31,4 +31,7 @@ interface CoffeeBlissDao {
 
     @Query("SELECT * FROM members WHERE email = :email LIMIT 1")
     suspend fun getMemberByEmail(email: String): Member?
+
+    @Query("UPDATE members SET name = :name, email = :email, phone = :phone WHERE id = :memberId")
+    suspend fun updateMemberDetails(memberId: Int, name: String, email: String, phone: String)
 }
